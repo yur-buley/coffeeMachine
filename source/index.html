@@ -5,8 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- build:css /css/main.min.css -->
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- endbuild -->
 </head>
 <body>
-  
+  <div class="wrapper">
+  	<div class="panel">
+  		<div class="info"></div>
+  		<div class="err"></div>
+  	</div>
+    <div class="buttons">
+      <input id="cap" type="button" onclick="panas.makeCoffeeCap()" value="Cappuccino">
+      <input id="esp" type="button" onclick="panas.makeCoffeeEsp()" value="Espresso">
+      <input id="cancel" type="button" onclick="panas.cancel()" value="Отмена">
+      <input id="add" type="button" onclick="panas.fullFill()" value="Добавить ингридиенты">
+    </div>
+  </div>
 </body>
 </html>
