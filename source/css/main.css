@@ -25,3 +25,13 @@
   width: 400px;
   margin: 15px 7px;
 }
+
+.hidden {
+  display: none;
+}
+
+span {
+  display: inline-block;
+  width: 100px;
+  margin: 5px;
+}
