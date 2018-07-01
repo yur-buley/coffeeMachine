@@ -1,0 +1,43 @@
+.wrapper {
+  width: 406px;
+  margin: 0 auto;
+}
+
+.panel {
+  width: 400px;
+  height: 300px;
+  border: 3px solid grey;
+  border-radius: 15px;
+}
+
+.info {
+  width: 385px;
+  height: 90px;
+  margin: 6px 5px;
+  border: 3px solid grey;
+  border-radius: 15px;
+}
+
+.err {
+  width: 385px;
+  height: 180px;
+  margin: 6px 5px;
+  border: 3px solid grey;
+  border-radius: 15px;
+}
+
+.buttons {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 400px;
+  margin: 15px auto;
+}
