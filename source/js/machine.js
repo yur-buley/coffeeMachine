@@ -19,5 +19,31 @@ function CoffeeMachine (power, maxWater, maxMilk, maxBeans, maxSugar) {
     beansVolume = maxBeans
     sugarVolume = maxSugar
     console.log(waterVolume, milkVolume, beansVolume, sugarVolume)
+    getInfo()
   }
+
+  this.fillWater = function () {
+    var newWater = + $('#addWater').val()
+    console.log(newWater)
+    if ((newWater + waterVolume) < waterEsp) {
+      console.error ("Неверное количество воды!\nДобавьте от " + (waterEsp - waterVolume) + " до " + (maxWater - waterVolume) + " мл воды.")
+    } else if ((newWater + waterVolume) > maxWater) {
+      console.error ("Неверное количество воды!\nДобавьте не более " + (maxWater - waterVolume) + " мл воды.")
+    } else {
+      waterVolume += newWater
+    }
+    getInfo()
+    console.log(waterVolume, milkVolume, beansVolume, sugarVolume)
+
+  }
+
+  function getInfo() {
+  $('.info').html('Вода: ' + waterVolume + ' / ' + maxWater + '</br>Молоко: ' + milkVolume + ' / ' + maxMilk + '</br>Зёрна: ' + beansVolume + ' / ' + maxBeans + '</br>Сахар: ' + sugarVolume + ' / ' + maxSugar)
 }
+}
+
+
+
+
+// cd /d d:\Learning_Prog\coffeeMachine
+// gulp watch
