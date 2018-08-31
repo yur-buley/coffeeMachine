@@ -7,7 +7,7 @@
 }
 
 .hidden {
-  /*display: none;*/
+  display: none;
 }
 
 span {
@@ -18,15 +18,17 @@ span {
 
 input[type="number"] {
   width: 80px;
-  margin: 5px 36px;
+  margin: 5px 3px;
 }
 
 input[type="button"] {
-  width: 129px;
+  width: 196px;
+  margin: 5px 0;
 }
 
+#cancel,
 #add,
 #full_fill {
   width: 403px;
-  margin: 15px auto;
+  margin: 15px 0 0 0;
 }
