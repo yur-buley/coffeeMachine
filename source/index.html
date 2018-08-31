@@ -23,38 +23,41 @@
     <div class="buttons">
       <input id="cap" type="button" onclick="panas.makeCoffeeCap()" value="Cappuccino">
       <input id="esp" type="button" onclick="panas.makeCoffeeEsp()" value="Espresso">
+      <input id="milk" type="button" onclick="panas.makeHotMilk()" value="Hot milk">
+      <input id="water" type="button" onclick="panas.makeHotWater()" value="Hot water">
       <input id="cancel" type="button" onclick="panas.cancel()" value="Отмена">
       <input id="add" type="button" onclick="addIngrs()" value="Добавить ингридиенты">
     </div>
     <div class="add_ingrs hidden">
       <div>
         <span>Вода:</span>
-        <input type="number" min="100" max="1500" step="100" value="100"> 
-        <input id="fillWater" type="button" onclick="panas.fillWater()" value="Добавить воды">
+        <input id="add_water" type="number" min="100" max="1500" step="100" value="100"> 
+        <input id="fill_water" type="button" onclick="panas.fillWater()" value="Добавить воды">
       </div>
       <div>
         <span>Молоко:</span>
-        <input type="number" min="50" max="300" step="50" value="50"> 
-        <input id="fillMilk" type="button" onclick="panas.fillMilk()" value="Добавить молока">
+        <input id="add_milk" type="number" min="100" max="300" step="50" value="100"> 
+        <input id="fill_milk" type="button" onclick="panas.fillMilk()" value="Добавить молока">
       </div>
       <div>
         <span>Зёрна:</span>
-        <input type="number" min="30" max="150" step="10" value="30"> 
-        <input id="fillBeans" type="button" onclick="panas.fillBeans()" value="Добавить кофе">
+        <input id="add_beans" type="number" min="30" max="150" step="10" value="30"> 
+        <input id="fill_beans" type="button" onclick="panas.fillBeans()" value="Добавить кофе">
       </div>
       <div>
         <span>Сахар:</span>
-        <input type="number" min="20" max="100" step="10" value="20"> 
-        <input id="fillSugar" type="button" onclick="panas.fillSugar()" value="Добавить сахара">
+        <input id="add_sugar" type="number" min="20" max="100" step="10" value="20"> 
+        <input id="fill_sugar" type="button" onclick="panas.fillSugar()" value="Добавить сахара">
       </div>
       <input id="full_fill" type="button" onclick="panas.fullFill()" value="Полное заполнение ингридиентами">
     </div>
   </div>
 
-
 <!-- build:js /js/main.min.js -->
 <script src="./js/addIngrs.js"></script>
 <script src="./js/machine.js"></script>
+<!-- <script src="./js/getInfo.js"></script> -->
+<script src="./js/getTime.js"></script>
 <!-- endbuild -->
 
 </body>
