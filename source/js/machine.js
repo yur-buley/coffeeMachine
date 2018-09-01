@@ -3,6 +3,8 @@ var power
   var milk = 70
   var waterCap = 100
   var waterEsp = 80
+  var hotMilk = 100
+  var hotWater = 100
 
 function CoffeeMachine (pwr, maxWater, maxMilk, maxBeans, maxSugar) {
   $('.info').text('АППАРАТ ВКЛЮЧЕН !')
@@ -88,13 +90,9 @@ function CoffeeMachine (pwr, maxWater, maxMilk, maxBeans, maxSugar) {
         $('.err').text ("Недостаточно сахара для приготовления напитка.")
         return
       } else {
-        var time = getHeatingMilk() + getHeatingCap()
+        var time = getHeatingMilk(milk) + getHeatingWater(waterCap)
         $('.info').text ("Ждите " + Math.ceil(time) + " с до окончания приготовления напитка.")
-        $('#cap').attr('disabled', true)
-        $('#esp').attr('disabled', true)
-        $('#milk').attr('disabled', true)
-        $('#water').attr('disabled', true)
-        $('#add').attr('disabled', true)
+        btnDisable()
       }
 
       waterVolume -= waterCap
@@ -104,11 +102,7 @@ function CoffeeMachine (pwr, maxWater, maxMilk, maxBeans, maxSugar) {
 
       timerId = setTimeout (function () {
         $('.info').text ("Ваш капучино готов!")
-        $('#cap').attr('disabled', false)
-        $('#esp').attr('disabled', false)
-        $('#milk').attr('disabled', false)
-        $('#water').attr('disabled', false)
-        $('#add').attr('disabled', false)
+        btnEnable()
       }, time*1000)
     }
 
@@ -123,13 +117,9 @@ function CoffeeMachine (pwr, maxWater, maxMilk, maxBeans, maxSugar) {
         $('.err').text ("Недостаточно сахара для приготовления напитка.")
         return
       } else {
-        var time = getHeatingEsp()
+        var time = getHeatingWater(waterEsp)
         $('.info').text ("Ждите " + Math.ceil(time) + " с до окончания приготовления напитка.")
-        $('#cap').attr('disabled', true)
-        $('#esp').attr('disabled', true)
-        $('#milk').attr('disabled', true)
-        $('#water').attr('disabled', true)
-        $('#add').attr('disabled', true)
+        btnDisable()
       }
 
       waterVolume -= waterEsp
@@ -138,15 +128,47 @@ function CoffeeMachine (pwr, maxWater, maxMilk, maxBeans, maxSugar) {
 
       timerId = setTimeout (function () {
         $('.info').text ("Ваш эспрессо готов!")
-        $('#cap').attr('disabled', false)
-        $('#esp').attr('disabled', false)
-        $('#milk').attr('disabled', false)
-        $('#water').attr('disabled', false)
-        $('#add').attr('disabled', false)
+        btnEnable()        
+      }, time*1000)
+    }
+
+    this.makeHotMilk = function () {
+      if (milkVolume < hotMilk) {
+        $('.err').text ("Недостаточно молока для приготовления напитка.")
+        return
+      } else {
+        var time = getHeatingMilk(hotMilk)
+        $('.info').text ("Ждите " + Math.ceil(time) + " с до окончания приготовления напитка.")
+        btnDisable()
+      }
+
+      milkVolume -= hotMilk
+      
+      timerId = setTimeout (function () {
+        $('.info').text ("Ваше молоко готово!")
+        btnEnable()
+      }, time*1000)
+    }
+
+    this.makeHotWater = function () {
+      if (waterVolume < hotWater) {
+        $('.err').text ("Недостаточно воды для приготовления напитка.")
+        return
+      } else {
+        var time = getHeatingWater(hotWater)
+        $('.info').text ("Ждите " + Math.ceil(time) + " с до окончания приготовления напитка.")
+        btnDisable()
+      }
+
+      waterVolume -= hotWater
+
+      timerId = setTimeout (function () {
+        $('.info').text ("Ваша вода готова!")
+        btnEnable()
       }, time*1000)
     }
 
   function getInfo() {
     $('.info').html('Вода: ' + waterVolume + ' / ' + maxWater + '</br>Молоко: ' + milkVolume + ' / ' + maxMilk + '</br>Зёрна: ' + beansVolume + ' / ' + maxBeans + '</br>Сахар: ' + sugarVolume + ' / ' + maxSugar)
-  }
+  }  
 }
